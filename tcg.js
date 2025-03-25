@@ -2,7 +2,8 @@
 
 async function pesquisarFotos(card) {
     let pokemontcg = String(card).toLocaleLowerCase()
-    const url = `https://api.codetabs.com/v1/proxy/?quest=api.pokemontcg.io/v2/cards?q=name:${pokemontcg}`
+    const url = `https://api.pokemontcg.io/v2/cards?q=name:${pokemontcg}`
+    //https://api.codetabs.com/v1/proxy/?quest=
     const response = await fetch(url)
     const data = await response.json()
     return data.data
@@ -13,7 +14,8 @@ function criarImagem(carta) {
     const novocard= document.createElement('div')
     novocard.classList.add('card')
     const novaImg = document.createElement('img')
-    novaImg.src = `https://api.codetabs.com/v1/proxy/?quest=${carta.images.small}`
+    novaImg.src = `${carta.images.small}`
+    //https://api.codetabs.com/v1/proxy/?quest=
     novaImg.alt = carta.name
     novaImg.id=carta.id
     novocard.appendChild(novaImg)
@@ -39,9 +41,12 @@ async function preencherFotos() {
 
 /*************************************************/
 
+
+
 async function pesquisarinfos(cardId) {
     
-    const url = `https://api.codetabs.com/v1/proxy/?quest=https://api.pokemontcg.io/v2/cards?q=id:${cardId}`
+    const url = `https://api.pokemontcg.io/v2/cards?q=id:${cardId}`
+    //https://api.codetabs.com/v1/proxy/?quest=
     try {
         const response = await fetch(url)
         const data = await response.json()
@@ -67,7 +72,8 @@ async function preencherinfo(cardId) {
         fotoContainer.classList.add('fotos')
 
         const img = document.createElement('img');
-        img.src = `https://api.codetabs.com/v1/proxy/?quest=${infos.images.small}`
+        img.src = `${infos.images.small}`
+        //https://api.codetabs.com/v1/proxy/?quest=
         img.alt = infos.name
         fotoContainer.appendChild(img);
 
