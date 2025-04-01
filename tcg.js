@@ -22,7 +22,7 @@ function criarImagem(carta) {
     galeria.appendChild(novocard)
 
     novaImg.addEventListener('click', async function() {
-        info.innerHTML = ''  
+        info.innerHTML=''
         await preencherinfo(carta.id)
     });
 }
@@ -31,12 +31,11 @@ async function preencherFotos() {
     const card = document.getElementById('pokemon').value
     const fotos = await pesquisarFotos(card)
     const galeria = document.getElementById('galeria')
-    galeria.replaceChildren()
-    galeria.innerHTML = ''
+    galeria.replaceChildren('')
     if (fotos && fotos.length > 0) {
         fotos.forEach(criarImagem)
     } else {
-        galeria.innerHTML = '<p>Card não encontrado!</p>'
+        galeria.replaceChildren = '<p>Card não encontrado!</p>'
     }
 }
 
