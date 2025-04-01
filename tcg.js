@@ -60,7 +60,7 @@ async function pesquisarinfos(cardId) {
 async function preencherinfo(cardId) {
     const infos = await pesquisarinfos(cardId)
     console.log(infos)
-    galeria.innerHTML = ''
+    galeria.replaceChildren('')
     if (infos) {
         const infoContainer = document.getElementById('info')
 
